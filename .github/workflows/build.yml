@@ -41,7 +41,7 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Show build/Release contents
-        run: dir build/Release
+        run: dir .
         
       - name: Upload .pyd artifact
         uses: actions/upload-artifact@v4
