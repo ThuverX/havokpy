@@ -43,5 +43,5 @@ jobs:
       - name: Upload .pyd artifact
         uses: actions/upload-artifact@v4
         with:
-          name: havokpy-${{ matrix.python-version }}.pyd
-          path: build/Release/*.pyd
+          name: havokpy-${{ matrix.python-version }}.zip
+          path: build/Release/*
