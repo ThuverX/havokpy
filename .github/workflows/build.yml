@@ -1,4 +1,4 @@
-name: CMake with Multiple Python Versions
+name: CMake with Multiple Python Versions (MSVC)
 
 on:
   push:
@@ -6,13 +6,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         python-version: [ "3.11.9" ]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (with submodules)
         uses: actions/checkout@v4
         with:
           submodules: true
@@ -27,16 +27,15 @@ jobs:
         with:
           cmake-version: '3.31'
 
-      - name: Configure project with CMake
+      - name: Configure project with CMake (MSVC)
         run: |
-          cmake -S . -B build \
-            -DPython3_EXECUTABLE=$(which python)
+          cmake -S . -B build ^
+            -G "Visual Studio 17 2022" ^
+            -A x64 ^
+            -DPython3_EXECUTABLE=%pythonLocation%\python.exe
 
-      - name: Build project
+      - name: Build project (MSVC)
         run: cmake --build build --config Release
-
-      - name: Show build contents
-        run: dir build/
         
       - name: Upload .pyd artifact
         uses: actions/upload-artifact@v4
