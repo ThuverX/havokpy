@@ -29,10 +29,10 @@ jobs:
 
       - name: Configure project with CMake (MSVC)
         run: |
-          cmake -S . -B build ^
-            -G "Visual Studio 17 2022" ^
-            -A x64 ^
-            -DPython3_EXECUTABLE=%pythonLocation%\python.exe
+          cmake -S . -B build `
+            -G "Visual Studio 17 2022" `
+            -A x64 `
+            -DPython3_EXECUTABLE="${env:pythonLocation}\python.exe"
 
       - name: Build project (MSVC)
         run: cmake --build build --config Release
