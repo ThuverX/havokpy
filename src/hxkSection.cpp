@@ -2,6 +2,8 @@
 // Created by exozg on 11/07/2025.
 //
 
+#include <cstring>
+
 #include "hxkSection.h"
 
 #include "hxkFile.h"
