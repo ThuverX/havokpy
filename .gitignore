@@ -3,3 +3,4 @@ cmake-build-release-visual-studio
 .idea
 test.cpp
 py
+build

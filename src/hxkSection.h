@@ -9,6 +9,7 @@
 #include <span>
 #include <string>
 #include <variant>
+#include <cstdint>
 
 class hkPhysicsDataClass;
 
