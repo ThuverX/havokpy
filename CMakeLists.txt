@@ -44,6 +44,3 @@ add_subdirectory(libs/pybind11)
 pybind11_add_module(havokpy MODULE library.cpp)
 target_link_libraries(havokpy PRIVATE havok_core)
 target_compile_definitions(havokpy PRIVATE PYBIND11_DETAILED_ERROR_MESSAGES)
-
-add_executable(havok_test test.cpp)
-target_link_libraries(havok_test PRIVATE havok_core)
